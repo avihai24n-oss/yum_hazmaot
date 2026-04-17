@@ -295,7 +295,17 @@
       letter-spacing:-.03em;margin-bottom:16px;
     }
     .cta-section h2 .gold{color:var(--gold);font-style:italic;}
-    .cta-section p{color:var(--ink-dim);margin-bottom:32px;font-size:16px;}
+    .cta-section p{color:var(--ink-dim);margin-bottom:18px;font-size:16px;}
+    .byob-reminder{
+      display:inline-block;margin-bottom:32px;
+      padding:12px 24px;border-radius:999px;
+      background:rgba(59,179,255,.14);
+      border:1px dashed rgba(59,179,255,.5);
+      color:var(--ink);font-size:15px;font-weight:600;
+      animation:bobble 2.6s ease-in-out infinite;
+    }
+    .byob-reminder strong{color:var(--gold);font-weight:800;}
+    @keyframes bobble{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-4px) rotate(1deg)}}
     .free-note{
       display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-size:13px;color:var(--ink-dim);
     }
@@ -413,7 +423,7 @@
         <div class="cell"><div class="label">תאריך</div><div class="value big">21.04.26</div></div>
         <div class="cell"><div class="label">מיקום</div><div class="value">יהודה המכבי 87<br>תל אביב</div></div>
         <div class="cell"><div class="label">קומה</div><div class="value">קומה 3 במעלית<br>+ קומה ברגל · דירה אחרונה</div></div>
-        <div class="cell"><div class="label">קונספט</div><div class="value">BYOB<br><span style="color:var(--ink-dim);font-weight:400;font-size:14px;">Bring Your Own Booze</span></div></div>
+        <div class="cell"><div class="label">קונספט</div><div class="value">BYOB<br><span style="color:var(--ink-dim);font-weight:400;font-size:14px;">Bring Your Own Booze</span><br><span style="color:var(--gold);font-weight:700;font-size:15px;">🍻 תביאו את השתייה שלכם</span></div></div>
         <div class="cell"><div class="label">השתתפות</div><div class="value big">30 ₪</div></div>
         <div class="cell"><div class="label">כולל</div><div class="value">כיבוד · אווירה · נוף<br>מטס חיל האוויר 🛩️</div></div>
       </div>
@@ -483,6 +493,7 @@
   <section class="cta-section">
     <h2>רק מחכים <span class="gold">לכם</span></h2>
     <p>קליק אחד ונרשמים לקבוצת התשלום ב-PayBox</p>
+    <div class="byob-reminder">🍻 <strong>תזכורת:</strong> תביאו את השתייה שלכם!</div>
     <button class="cta" onclick="goPaybox(event)">
       הצטרפו לחגיגה
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
