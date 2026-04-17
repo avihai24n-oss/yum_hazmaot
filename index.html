@@ -19,9 +19,10 @@
       --bg-2:#111827;
       --ink:#f5f2ea;
       --ink-dim:rgba(245,242,234,.65);
-      --gold:#e8b04c;
-      --gold-glow:rgba(232,176,76,.35);
+      --gold:#3bb3ff;
+      --gold-glow:rgba(59,179,255,.45);
       --blue:#5aa8ff;
+      --white-soft:#f5f2ea;
       --border:rgba(255,255,255,.12);
     }
     *{margin:0;padding:0;box-sizing:border-box;}
@@ -118,7 +119,7 @@
 
     /* ---- COUNTDOWN (flip cards) ---- */
     .countdown{
-      display:flex;gap:14px;margin-bottom:52px;
+      display:flex;flex-direction:row-reverse;gap:14px;margin-bottom:52px;
       opacity:0;animation:fadeUp 1s .95s ease-out forwards;
     }
     .flip{display:flex;flex-direction:column;align-items:center;}
@@ -145,7 +146,7 @@
     .cta{
       display:inline-flex;align-items:center;gap:14px;
       padding:20px 46px;border-radius:999px;border:none;cursor:pointer;
-      background:var(--gold);color:#1a0f00;
+      background:var(--gold);color:#04253f;
       font-family:'Rubik',sans-serif;font-weight:900;font-size:19px;
       text-decoration:none;transition:all .3s ease;
       box-shadow:0 20px 60px var(--gold-glow),inset 0 1px 0 rgba(255,255,255,.3);
@@ -221,6 +222,71 @@
     }
     .concept-sub{font-size:16px;color:var(--ink-dim);max-width:420px;margin:0 auto;line-height:1.6;}
 
+    /* ---- HOSTS ---- */
+    .hosts{padding:40px 22px 20px;display:flex;justify-content:center;}
+    .hosts-card{
+      width:100%;max-width:620px;text-align:center;
+      background:linear-gradient(135deg,rgba(59,179,255,.12) 0%,rgba(255,255,255,.04) 100%);
+      backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+      border:1px solid rgba(59,179,255,.25);border-radius:22px;
+      padding:36px 30px;position:relative;overflow:hidden;
+    }
+    .hosts-card::before{
+      content:'⭐';position:absolute;top:-18px;right:28px;font-size:40px;
+      opacity:.6;transform:rotate(14deg);
+    }
+    .hosts-card::after{
+      content:'✨';position:absolute;bottom:-14px;left:26px;font-size:34px;
+      opacity:.5;transform:rotate(-18deg);
+    }
+    .hosts-label{
+      font-family:'Bebas Neue',sans-serif;letter-spacing:.3em;
+      font-size:12px;color:var(--gold);margin-bottom:10px;
+    }
+    .hosts-name{
+      font-family:'Rubik',sans-serif;font-weight:900;
+      font-size:clamp(30px,5.2vw,46px);letter-spacing:-.02em;
+      margin-bottom:14px;
+    }
+    .hosts-name .gold{color:var(--gold);font-style:italic;}
+    .hosts-desc{
+      color:var(--ink-dim);font-size:15px;line-height:1.7;
+      max-width:460px;margin:0 auto;
+    }
+    .hosts-desc strong{color:var(--ink);font-weight:600;}
+
+    /* ---- VIBES / DRESS CODE ---- */
+    .vibes{padding:60px 22px 40px;display:flex;flex-direction:column;align-items:center;}
+    .vibes h2{
+      font-family:'Rubik',sans-serif;font-weight:900;
+      font-size:clamp(30px,5.5vw,52px);letter-spacing:-.03em;
+      margin-bottom:12px;text-align:center;
+    }
+    .vibes h2 .gold{color:var(--gold);font-style:italic;}
+    .vibes-sub{color:var(--ink-dim);font-size:15px;margin-bottom:36px;text-align:center;}
+    .vibes-grid{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;width:100%;max-width:760px;
+    }
+    .vibe-item{
+      background:linear-gradient(180deg,rgba(255,255,255,.06) 0%,rgba(255,255,255,.02) 100%);
+      backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+      border:1px solid var(--border);border-radius:18px;
+      padding:24px 22px;transition:all .3s ease;
+    }
+    .vibe-item:hover{
+      border-color:rgba(59,179,255,.4);
+      transform:translateY(-3px);
+      box-shadow:0 20px 40px rgba(59,179,255,.12);
+    }
+    .vibe-icon{font-size:32px;margin-bottom:10px;}
+    .vibe-title{
+      font-family:'Rubik',sans-serif;font-weight:700;
+      font-size:18px;margin-bottom:6px;color:var(--ink);
+    }
+    .vibe-text{font-size:14px;line-height:1.6;color:var(--ink-dim);}
+    .vibe-text strong{color:var(--gold);font-weight:700;}
+
     /* ---- BOTTOM CTA ---- */
     .cta-section{padding:60px 22px 110px;text-align:center;}
     .cta-section h2{
@@ -285,6 +351,8 @@
       .cta{padding:18px 34px;font-size:17px;}
       .subtitle{font-size:16px;}
       .music{bottom:16px;right:16px;width:48px;height:48px;}
+      .hosts-card{padding:28px 20px;}
+      .vibes-grid{grid-template-columns:1fr;}
     }
   </style>
 </head>
@@ -312,7 +380,8 @@
     <div class="year-line">21 · 04 · 2026</div>
     <p class="subtitle">
       מסיבת גג פרטית לכבוד יום העצמאות 78.<br>
-      <strong>מטסים, נוף של ת״א, אווירה טובה</strong> ואנשים נבחרים.
+      <strong>מטסים, נוף של ת״א, אווירה טובה</strong> ואנשים נבחרים.<br>
+      בהנחיית <strong>רון & יוליה</strong> 🎤
     </p>
 
     <div class="countdown" id="countdown">
@@ -360,12 +429,62 @@
     <p class="concept-sub">שתייה אתם מביאים · את הכיבוד אנחנו סוגרים 🍾</p>
   </section>
 
+  <!-- HOSTS -->
+  <section class="hosts">
+    <div class="hosts-card">
+      <div class="hosts-label">YOUR HOSTS · 2026</div>
+      <div class="hosts-name">רון <span class="gold">&</span> יוליה</div>
+      <p class="hosts-desc">
+        המארחים הרשמיים של הגג (וגם הלא-רשמיים, כי אין להם ברירה).<br>
+        <strong>רון</strong> אחראי על הפלייליסט, <strong>יוליה</strong> אחראית על האווירה — שניהם אחראים שתצאו עם חיוך ועם פחות אלכוהול משהגעתם. 🍸
+      </p>
+    </div>
+  </section>
+
+  <!-- VIBES / DRESS CODE -->
+  <section class="vibes">
+    <h2>איך <span class="gold">מגיעים?</span></h2>
+    <p class="vibes-sub">כמה דגשים קטנים ששווה לדעת לפני שעולים לגג 👇</p>
+    <div class="vibes-grid">
+      <div class="vibe-item">
+        <div class="vibe-icon">👕</div>
+        <div class="vibe-title">לבוש</div>
+        <div class="vibe-text"><strong>כחול-לבן</strong> על הראש (או לפחות ברוח). סטייל גג תל אביבי — נוח, מגניב, לא יותר מדי מאמץ.</div>
+      </div>
+      <div class="vibe-item">
+        <div class="vibe-icon">🧥</div>
+        <div class="vibe-title">שכבה נוספת</div>
+        <div class="vibe-text">הגג <strong>קריר בלילה</strong>, קחו ג׳קט / קרדיגן / חברה שתחבק. לא רוצים לשמוע אחר כך "קר לי".</div>
+      </div>
+      <div class="vibe-item">
+        <div class="vibe-icon">⚡</div>
+        <div class="vibe-title">אנרגיות</div>
+        <div class="vibe-text"><strong>טובות בלבד.</strong> דרמות, אקסים ואנרגיות רעות — נשארים למטה עם המכונית. 🚫</div>
+      </div>
+      <div class="vibe-item">
+        <div class="vibe-icon">🎉</div>
+        <div class="vibe-title">ווייב</div>
+        <div class="vibe-text">מגיעים <strong>לחגוג</strong>, לא לבהות בטלפון. ריקודים, צחוקים והרמות כוסית — זה הקונספט.</div>
+      </div>
+      <div class="vibe-item">
+        <div class="vibe-icon">🕺</div>
+        <div class="vibe-title">נעליים</div>
+        <div class="vibe-text">סניקרס / סנדלים — משהו שתוכלו <strong>לרקוד בו 5 שעות</strong>. עקבים על גג = סיפור לא טוב.</div>
+      </div>
+      <div class="vibe-item">
+        <div class="vibe-icon">😎</div>
+        <div class="vibe-title">הכי חשוב</div>
+        <div class="vibe-text"><strong>חיוך.</strong> חותכים פרצופים חמוצים בכניסה. זה יום העצמאות — תתנהגו בהתאם. 🇮🇱</div>
+      </div>
+    </div>
+  </section>
+
   <!-- BOTTOM CTA -->
   <section class="cta-section">
     <h2>רק מחכים <span class="gold">לכם</span></h2>
     <p>קליק אחד ונרשמים לקבוצת התשלום ב-PayBox</p>
     <button class="cta" onclick="goPaybox(event)">
-      הצטרפות לקבוצה
+      הצטרפו לחגיגה
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <line x1="19" y1="12" x2="5" y2="12"></line>
         <polyline points="12 19 5 12 12 5"></polyline>
@@ -445,7 +564,7 @@
 
     function celebrate(e){
       const x=e?.clientX??innerWidth/2,y=e?.clientY??innerHeight/2;
-      const colors=['#e8b04c','#5aa8ff','#ffffff','#ff8a65','#ffd54f'];
+      const colors=['#3bb3ff','#5aa8ff','#ffffff','#0099e6','#bfe4ff'];
       for(let i=0;i<90;i++){
         parts.push({
           x,y,
