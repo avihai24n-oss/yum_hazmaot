@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>עצמאות בגג · 2026</title>
+  <meta name="description" content="מסיבת גג עצמאות 2026 — 21.4.26 — יהודה המכבי 87, תל אביב">
+  <meta property="og:title" content="עצמאות בגג 2026">
+  <meta property="og:description" content="מסיבת גג לכבוד יום העצמאות · 21.04.26 · תל אביב">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&family=Assistant:wght@300;400;600;700&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0a0e1a;
+      --bg-2:#111827;
+      --ink:#f5f2ea;
+      --ink-dim:rgba(245,242,234,.65);
+      --gold:#e8b04c;
+      --gold-glow:rgba(232,176,76,.35);
+      --blue:#5aa8ff;
+      --border:rgba(255,255,255,.12);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      background:var(--bg);
+      color:var(--ink);
+      font-family:'Assistant',sans-serif;
+      overflow-x:hidden;
+      min-height:100vh;
+    }
+    /* subtle grain */
+    body::before{
+      content:'';position:fixed;inset:0;pointer-events:none;z-index:1000;opacity:.05;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ---- BACKGROUND VIDEO ---- */
+    .video-bg{position:fixed;inset:0;z-index:-2;overflow:hidden;
+      background:
+        radial-gradient(ellipse at 20% 20%, #1a2652 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 80%, #4a2a1a 0%, transparent 55%),
+        linear-gradient(180deg, #0a0e1a 0%, #0d1220 100%);
+    }
+    .video-bg video{width:100%;height:100%;object-fit:cover;}
+    .video-bg::after{
+      content:'';position:absolute;inset:0;
+      background:
+        linear-gradient(180deg, rgba(10,14,26,.45) 0%, rgba(10,14,26,.75) 55%, rgba(10,14,26,.95) 100%),
+        radial-gradient(ellipse at center, transparent 20%, rgba(10,14,26,.5) 100%);
+    }
+
+    /* twinkling stars for atmosphere when no video */
+    .stars{position:fixed;inset:0;z-index:-1;pointer-events:none;}
+    .stars i{
+      position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;
+      opacity:.6;animation:twinkle 3s infinite;
+    }
+    @keyframes twinkle{0%,100%{opacity:.2}50%{opacity:.9}}
+
+    /* ---- TOP STICKY CTA ---- */
+    .top-cta{
+      position:fixed;top:22px;left:22px;z-index:50;
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 22px;border-radius:999px;
+      background:rgba(10,14,26,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+      border:1px solid var(--border);color:var(--ink);
+      text-decoration:none;font-weight:700;font-size:14px;
+      transition:all .3s ease;cursor:pointer;
+    }
+    .top-cta:hover{background:var(--gold);color:var(--bg);border-color:var(--gold);transform:translateY(-1px);}
+    .top-cta .dot{
+      width:8px;height:8px;background:var(--gold);border-radius:50%;
+      box-shadow:0 0 14px var(--gold-glow);animation:pulse 2s infinite;
+    }
+    .top-cta:hover .dot{background:var(--bg);box-shadow:none;}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+    /* ---- HERO ---- */
+    .hero{
+      min-height:100vh;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      padding:90px 22px 70px;text-align:center;position:relative;
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:14px;
+      font-family:'Bebas Neue',sans-serif;letter-spacing:.3em;
+      font-size:13px;color:var(--gold);margin-bottom:22px;
+      opacity:0;animation:fadeUp .9s .2s ease-out forwards;
+    }
+    .eyebrow::before,.eyebrow::after{content:'';width:34px;height:1px;background:var(--gold);opacity:.6;}
+
+    h1.title{
+      font-family:'Rubik',sans-serif;font-weight:900;
+      font-size:clamp(56px,11vw,150px);line-height:.9;
+      letter-spacing:-.04em;margin-bottom:10px;
+      opacity:0;animation:fadeUp 1s .35s ease-out forwards;
+    }
+    h1.title .gold{color:var(--gold);font-style:italic;display:inline-block;}
+
+    .year-line{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(20px,3vw,30px);letter-spacing:.45em;
+      color:var(--ink-dim);margin-bottom:38px;
+      opacity:0;animation:fadeUp 1s .55s ease-out forwards;
+    }
+
+    .subtitle{
+      max-width:520px;font-size:17px;line-height:1.7;
+      color:var(--ink-dim);margin-bottom:50px;font-weight:400;
+      opacity:0;animation:fadeUp 1s .75s ease-out forwards;
+    }
+    .subtitle strong{color:var(--ink);font-weight:600;}
+
+    /* ---- COUNTDOWN (flip cards) ---- */
+    .countdown{
+      display:flex;gap:14px;margin-bottom:52px;
+      opacity:0;animation:fadeUp 1s .95s ease-out forwards;
+    }
+    .flip{display:flex;flex-direction:column;align-items:center;}
+    .flip-card{
+      position:relative;width:92px;height:112px;
+      background:linear-gradient(180deg,#1a2238 0%,#0d1220 100%);
+      border:1px solid var(--border);border-radius:14px;overflow:hidden;
+      box-shadow:0 24px 60px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.08);
+    }
+    .flip-card::after{content:'';position:absolute;top:50%;left:8px;right:8px;height:1px;background:rgba(0,0,0,.55);z-index:2;}
+    .flip-num{
+      position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+      font-family:'Bebas Neue',sans-serif;font-size:72px;color:var(--gold);
+      transition:transform .4s cubic-bezier(.4,0,.2,1);
+    }
+    .flip-num.tick{animation:tick .5s cubic-bezier(.4,0,.2,1);}
+    @keyframes tick{0%{transform:translateY(0)}40%{transform:translateY(-40%);opacity:0}41%{transform:translateY(40%);opacity:0}100%{transform:translateY(0);opacity:1}}
+    .flip-label{
+      margin-top:12px;font-size:11px;font-weight:600;
+      letter-spacing:.2em;color:var(--ink-dim);text-transform:uppercase;
+    }
+
+    /* ---- CTA BUTTON ---- */
+    .cta{
+      display:inline-flex;align-items:center;gap:14px;
+      padding:20px 46px;border-radius:999px;border:none;cursor:pointer;
+      background:var(--gold);color:#1a0f00;
+      font-family:'Rubik',sans-serif;font-weight:900;font-size:19px;
+      text-decoration:none;transition:all .3s ease;
+      box-shadow:0 20px 60px var(--gold-glow),inset 0 1px 0 rgba(255,255,255,.3);
+      position:relative;overflow:hidden;
+      opacity:0;animation:fadeUp 1s 1.15s ease-out forwards;
+    }
+    .cta:hover{transform:translateY(-2px);box-shadow:0 30px 80px var(--gold-glow);}
+    .cta svg{transition:transform .3s ease;}
+    .cta:hover svg{transform:translateX(-6px);}
+
+    .scroll-hint{
+      position:absolute;bottom:32px;font-size:11px;letter-spacing:.35em;
+      color:var(--ink-dim);opacity:0;
+      animation:fadeUp 1s 1.5s ease-out forwards,bounce 2.4s 2.2s infinite;
+    }
+    @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+    /* ---- BOARDING PASS ---- */
+    .details{padding:90px 22px 40px;display:flex;justify-content:center;position:relative;}
+    .ticket{
+      width:100%;max-width:760px;
+      background:linear-gradient(180deg,rgba(255,255,255,.06) 0%,rgba(255,255,255,.02) 100%);
+      backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+      border:1px solid var(--border);border-radius:26px;
+      padding:46px 50px;position:relative;
+    }
+    .ticket::before,.ticket::after{
+      content:'';position:absolute;top:50%;width:32px;height:32px;
+      background:var(--bg);border-radius:50%;transform:translateY(-50%);
+      border:1px solid var(--border);
+    }
+    .ticket::before{right:-17px;}
+    .ticket::after{left:-17px;}
+    .ticket-head{
+      display:flex;justify-content:space-between;align-items:center;
+      padding-bottom:22px;margin-bottom:30px;
+      border-bottom:1px dashed var(--border);
+    }
+    .ticket-logo{
+      font-family:'Bebas Neue',sans-serif;font-size:18px;
+      letter-spacing:.3em;color:var(--gold);
+    }
+    .ticket-logo .plane{margin-left:8px;}
+    .ticket-no{
+      font-family:'Space Mono',monospace;font-size:12px;
+      color:var(--ink-dim);letter-spacing:.2em;
+    }
+    .ticket-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 32px;}
+    .cell .label{
+      font-family:'Space Mono',monospace;font-size:10px;
+      letter-spacing:.22em;color:var(--ink-dim);
+      text-transform:uppercase;margin-bottom:8px;
+    }
+    .cell .value{font-size:17px;font-weight:700;line-height:1.45;}
+    .cell .value.big{
+      font-family:'Bebas Neue',sans-serif;font-size:38px;
+      color:var(--gold);font-weight:400;letter-spacing:.03em;
+    }
+    .ticket-foot{
+      margin-top:30px;padding-top:20px;border-top:1px dashed var(--border);
+      text-align:center;font-size:13px;color:var(--ink-dim);
+      display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;
+    }
+
+    /* ---- CONCEPT BANNER ---- */
+    .concept{padding:60px 22px 30px;text-align:center;}
+    .concept-tag{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(44px,8vw,96px);letter-spacing:.04em;line-height:1;
+      background:linear-gradient(180deg,var(--ink) 0%,rgba(245,242,234,.3) 100%);
+      -webkit-background-clip:text;background-clip:text;
+      -webkit-text-fill-color:transparent;margin-bottom:14px;
+    }
+    .concept-sub{font-size:16px;color:var(--ink-dim);max-width:420px;margin:0 auto;line-height:1.6;}
+
+    /* ---- BOTTOM CTA ---- */
+    .cta-section{padding:60px 22px 110px;text-align:center;}
+    .cta-section h2{
+      font-family:'Rubik',sans-serif;font-weight:900;
+      font-size:clamp(34px,6.2vw,60px);line-height:1.05;
+      letter-spacing:-.03em;margin-bottom:16px;
+    }
+    .cta-section h2 .gold{color:var(--gold);font-style:italic;}
+    .cta-section p{color:var(--ink-dim);margin-bottom:32px;font-size:16px;}
+    .free-note{
+      display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-size:13px;color:var(--ink-dim);
+    }
+    .free-note .chip{
+      background:rgba(90,168,255,.16);color:var(--blue);
+      padding:5px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.05em;
+    }
+
+    /* ---- MUSIC TOGGLE ---- */
+    .music{
+      position:fixed;bottom:22px;right:22px;z-index:50;
+      width:54px;height:54px;border-radius:50%;
+      background:rgba(10,14,26,.75);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+      border:1px solid var(--border);cursor:pointer;
+      display:flex;align-items:center;justify-content:center;color:var(--ink);
+      transition:all .3s ease;
+    }
+    .music:hover{background:var(--gold);color:var(--bg);border-color:var(--gold);}
+    .music.on{background:var(--gold);color:var(--bg);border-color:var(--gold);}
+
+    footer{
+      padding:34px 22px;text-align:center;font-size:12px;letter-spacing:.2em;
+      color:var(--ink-dim);border-top:1px solid var(--border);
+      font-family:'Bebas Neue',sans-serif;
+    }
+    footer .heart{color:var(--gold);margin:0 6px;}
+
+    #confetti{position:fixed;inset:0;pointer-events:none;z-index:100;}
+
+    /* airplane flyby */
+    .plane-fly{
+      position:fixed;top:12%;right:-80px;z-index:2;
+      font-size:28px;opacity:.55;pointer-events:none;
+      animation:flyby 22s linear infinite;animation-delay:8s;
+    }
+    @keyframes flyby{
+      0%{right:-80px;transform:rotate(-4deg) translateY(0)}
+      50%{transform:rotate(-4deg) translateY(-20px)}
+      100%{right:calc(100% + 80px);transform:rotate(-4deg) translateY(0)}
+    }
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+
+    /* ---- MOBILE ---- */
+    @media (max-width:640px){
+      .top-cta{padding:10px 16px;font-size:12px;left:14px;top:14px;}
+      .countdown{gap:8px;}
+      .flip-card{width:66px;height:84px;}
+      .flip-num{font-size:54px;}
+      .ticket{padding:30px 22px;}
+      .ticket::before{right:-16px}.ticket::after{left:-16px}
+      .ticket-grid{grid-template-columns:1fr;gap:22px;}
+      .cta{padding:18px 34px;font-size:17px;}
+      .subtitle{font-size:16px;}
+      .music{bottom:16px;right:16px;width:48px;height:48px;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background video (graceful fallback to gradient+stars if missing) -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="airplanes.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="stars" id="stars"></div>
+  <div class="plane-fly">✈️</div>
+
+  <!-- TOP CTA -->
+  <a href="https://links.payboxapp.com/mjFxdv5al2b" target="_blank" rel="noopener" class="top-cta" onclick="celebrate(event)">
+    <span class="dot"></span>
+    הצטרפו לקבוצת התשלום
+  </a>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">TEL AVIV · ISRAEL · 2026</div>
+    <h1 class="title">עצמאות <span class="gold">בגג</span></h1>
+    <div class="year-line">21 · 04 · 2026</div>
+    <p class="subtitle">
+      מסיבת גג פרטית לכבוד יום העצמאות 78.<br>
+      <strong>מטסים, נוף של ת״א, אווירה טובה</strong> ואנשים נבחרים.
+    </p>
+
+    <div class="countdown" id="countdown">
+      <div class="flip"><div class="flip-card"><span class="flip-num" id="d">00</span></div><div class="flip-label">ימים</div></div>
+      <div class="flip"><div class="flip-card"><span class="flip-num" id="h">00</span></div><div class="flip-label">שעות</div></div>
+      <div class="flip"><div class="flip-card"><span class="flip-num" id="m">00</span></div><div class="flip-label">דקות</div></div>
+      <div class="flip"><div class="flip-card"><span class="flip-num" id="s">00</span></div><div class="flip-label">שניות</div></div>
+    </div>
+
+    <button class="cta" onclick="goPaybox(event)">
+      הצטרפו לחגיגה
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+    </button>
+
+    <div class="scroll-hint">↓ פרטים מלאים</div>
+  </section>
+
+  <!-- BOARDING PASS -->
+  <section class="details">
+    <div class="ticket">
+      <div class="ticket-head">
+        <div class="ticket-logo">BOARDING PASS<span class="plane">✈</span>TLV</div>
+        <div class="ticket-no">NO. 2026 / 078</div>
+      </div>
+      <div class="ticket-grid">
+        <div class="cell"><div class="label">תאריך</div><div class="value big">21.04.26</div></div>
+        <div class="cell"><div class="label">מיקום</div><div class="value">יהודה המכבי 87<br>תל אביב</div></div>
+        <div class="cell"><div class="label">קומה</div><div class="value">קומה 3 במעלית<br>+ קומה ברגל · דירה אחרונה</div></div>
+        <div class="cell"><div class="label">קונספט</div><div class="value">BYOB<br><span style="color:var(--ink-dim);font-weight:400;font-size:14px;">Bring Your Own Booze</span></div></div>
+        <div class="cell"><div class="label">השתתפות</div><div class="value big">30 ₪</div></div>
+        <div class="cell"><div class="label">כולל</div><div class="value">כיבוד · אווירה · נוף<br>מטס חיל האוויר 🛩️</div></div>
+      </div>
+      <div class="ticket-foot">
+        <span>💡 טיפ:</span> <span>מומלץ להגיע לפני המטס</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="concept">
+    <div class="concept-tag">BRING YOUR OWN BOOZE</div>
+    <p class="concept-sub">שתייה אתם מביאים · את הכיבוד אנחנו סוגרים 🍾</p>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="cta-section">
+    <h2>רק מחכים <span class="gold">לכם</span></h2>
+    <p>קליק אחד ונרשמים לקבוצת התשלום ב-PayBox</p>
+    <button class="cta" onclick="goPaybox(event)">
+      הצטרפות לקבוצה
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+    </button>
+    <div class="free-note">
+      <span class="chip">חינם</span>
+      <span>השימוש ב-PayBox חינם לחלוטין</span>
+    </div>
+  </section>
+
+  <!-- MUSIC -->
+  <button class="music" id="musicBtn" aria-label="הפעלת מוזיקה">
+    <svg id="iconOff" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <line x1="23" y1="9" x2="17" y2="15"></line>
+      <line x1="17" y1="9" x2="23" y2="15"></line>
+    </svg>
+    <svg id="iconOn" style="display:none" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+    </svg>
+  </button>
+  <audio id="bgAudio" loop><source src="music.mp3" type="audio/mpeg"></audio>
+
+  <canvas id="confetti"></canvas>
+
+  <footer>
+    עצמאות <span class="heart">❤</span> 2026 · נתראה בגג
+  </footer>
+
+  <script>
+    /* ----- stars fallback ----- */
+    const stars=document.getElementById('stars');
+    for(let i=0;i<60;i++){
+      const s=document.createElement('i');
+      s.style.top=Math.random()*100+'%';
+      s.style.left=Math.random()*100+'%';
+      s.style.animationDelay=(Math.random()*3)+'s';
+      s.style.opacity=(Math.random()*.6+.3).toFixed(2);
+      stars.appendChild(s);
+    }
+
+    /* ----- COUNTDOWN with flip animation ----- */
+    // 21.04.2026 20:00 Israel time (UTC+3)
+    const target=new Date('2026-04-21T20:00:00+03:00').getTime();
+    const el={d:document.getElementById('d'),h:document.getElementById('h'),m:document.getElementById('m'),s:document.getElementById('s')};
+    const last={d:'',h:'',m:'',s:''};
+
+    function update(){
+      const diff=target-Date.now();
+      if(diff<=0){ Object.values(el).forEach(n=>n.textContent='00'); return; }
+      const d=Math.floor(diff/864e5);
+      const h=Math.floor(diff%864e5/36e5);
+      const m=Math.floor(diff%36e5/6e4);
+      const s=Math.floor(diff%6e4/1e3);
+      setNum('d',String(d).padStart(2,'0'));
+      setNum('h',String(h).padStart(2,'0'));
+      setNum('m',String(m).padStart(2,'0'));
+      setNum('s',String(s).padStart(2,'0'));
+    }
+    function setNum(k,v){
+      if(last[k]===v)return;
+      el[k].textContent=v;
+      el[k].classList.remove('tick');void el[k].offsetWidth;el[k].classList.add('tick');
+      last[k]=v;
+    }
+    update();setInterval(update,1000);
+
+    /* ----- CONFETTI BURST ----- */
+    const canvas=document.getElementById('confetti');
+    const ctx=canvas.getContext('2d');
+    let parts=[];
+    function resize(){canvas.width=innerWidth;canvas.height=innerHeight;}
+    resize();addEventListener('resize',resize);
+
+    function celebrate(e){
+      const x=e?.clientX??innerWidth/2,y=e?.clientY??innerHeight/2;
+      const colors=['#e8b04c','#5aa8ff','#ffffff','#ff8a65','#ffd54f'];
+      for(let i=0;i<90;i++){
+        parts.push({
+          x,y,
+          vx:(Math.random()-.5)*16,
+          vy:Math.random()*-13-4,
+          size:Math.random()*7+3,
+          color:colors[Math.floor(Math.random()*colors.length)],
+          rot:Math.random()*360,vr:(Math.random()-.5)*12,life:1
+        });
+      }
+    }
+    function loop(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      parts=parts.filter(p=>p.life>0);
+      parts.forEach(p=>{
+        p.vy+=.38;p.x+=p.vx;p.y+=p.vy;p.rot+=p.vr;p.life-=.012;
+        ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot*Math.PI/180);
+        ctx.globalAlpha=Math.max(0,p.life);ctx.fillStyle=p.color;
+        ctx.fillRect(-p.size/2,-p.size/2,p.size,p.size*.5);
+        ctx.restore();
+      });
+      requestAnimationFrame(loop);
+    }
+    loop();
+
+    function goPaybox(e){
+      e.preventDefault();
+      celebrate(e);
+      setTimeout(()=>window.open('https://links.payboxapp.com/mjFxdv5al2b','_blank','noopener'),450);
+    }
+
+    /* Auto celebration on load */
+    addEventListener('load',()=>setTimeout(()=>celebrate({clientX:innerWidth/2,clientY:innerHeight*.35}),1400));
+
+    /* ----- MUSIC TOGGLE ----- */
+    const audio=document.getElementById('bgAudio');
+    const btn=document.getElementById('musicBtn');
+    const on=document.getElementById('iconOn'),off=document.getElementById('iconOff');
+    audio.volume=.35;let playing=false;
+    btn.addEventListener('click',()=>{
+      if(playing){audio.pause();off.style.display='block';on.style.display='none';btn.classList.remove('on');}
+      else{audio.play().catch(()=>{});off.style.display='none';on.style.display='block';btn.classList.add('on');}
+      playing=!playing;
+    });
+  </script>
+</body>
+</html>
